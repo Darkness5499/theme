@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        $('#submitbtn').on('click',function(){
+            var name = $('#category-name').val();
+            alert(name);
+            $.ajax({
+            url:"http://localhost:8080/admin/categories/save",
+            contentType: "application/json",
+            method:'POST',
+            data:JSON.stringify({
+                name:"GOOGLE"
+            }),
+            success:function(data){
+                console.log(data);
+            }
+        })
+
+        })
+    });
+</script>
+</head>
+<body>
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Category Name</label>
+            <input type="text" class="form-control" name="category-name" id="category-name" placeholder="Please Enter Username" />
+        </div>
+        <input value="Add" type="button" id="submitbtn" class="btn btn-default"/>
+        <button type="reset" class="btn btn-default">Reset</button>
+    <form>
+
+    <img src="http://localhost:8080/uploads/12943324485fabac0fdead53.04155123.jpg" alt="">
+                        
+
+</body>
+</html>
